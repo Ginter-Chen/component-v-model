@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import Child from './components/child.vue'
+
+const count  = ref(0);
+const input = ref("default");
 </script>
 
 <template>
@@ -11,7 +15,10 @@ import Child from './components/child.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <Child msg="Vite + Vue" />
+  <h1>Parent</h1>
+  <p>Parent count is {{ count }}</p>
+  <p>Parent string is {{ input }}</p>
+  <Child msg="Child" v-model:count="count" v-model:input="input"/>
 </template>
 
 <style scoped>
